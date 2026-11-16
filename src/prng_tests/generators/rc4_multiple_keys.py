@@ -1,14 +1,12 @@
 import math
+
 import numpy as np
+
 import argparse
+
 import pickle
+
 import time
-
-
-m = 32
-time = time.time()
-time = str(time).replace('.', '')
-k_default = list(map(int, time))
 
 def ParseArguments():
     parser = argparse.ArgumentParser(description="PRNG")
@@ -21,7 +19,6 @@ def ParseArguments():
 
     return args.n, args.k, args.output_file,args.m
 
-
 def ksa(K, M):
     L = len(K)
     S = list(range(M))
@@ -32,7 +29,6 @@ def ksa(K, M):
         S[i], S[j] = S[j], S[i]
 
     return S
-
 
 def prga(S, M, n):
     i = 0
@@ -50,25 +46,42 @@ def prga(S, M, n):
 
     return result
 
-def rc4(K, n, M=32):
-    S = ksa(K, M)
-    generator = prga(S, M, n)
-    return generator
+
+def main():
+    global data, data_outfile, generator, i, k_default, l, m, n_split, time
+    m = 32
+
+    time = time.time()
+
+    time = str(time).replace('.', '')
+
+    k_default = list(map(int, time))
+
+    generator=[]
+
+    if isinstance(key, list):
+        l=len(key)
+        n_split = math.floor(n / l)
+
+        for i in key[0:(l-1)]:
+            generator.extend(rc4(np.binary_repr(int(i)),n_split,m))
+        generator.extend(rc4(np.binary_repr(int(key[l-1])), n-(l-1)*n_split, m))
+    else:
+        generator = rc4(key, n,m)
+
+    if output_file == "":
+        print("Wygenerowane liczby: \n", generator)
+    else:
+        data = {'PRNG': 'RC4',
+                'key': key,
+                'n': n,
+                'numbers': generator,
+                'Modulus':m}
+
+        data_outfile = open(output_file, 'wb+')
+        pickle.dump(data, data_outfile)
+        print("Generated numbers saved in: ", output_file)
 
 
-n, key, output_file ,m= ParseArguments()
-
-generator = rc4(key, n, m)
-
-if output_file == "":
-    print("Wygenerowane liczby: \n", generator)
-else:
-    data = {'PRNG': 'RC4',
-            'key': key,
-            'n': n,
-            'numbers': generator,
-            'Modulus': m}
-
-    data_outfile = open(output_file, 'wb+')
-    pickle.dump(data, data_outfile)
-    print("Generated numbers saved in: ", output_file)
+if __name__ == "__main__":
+    main()

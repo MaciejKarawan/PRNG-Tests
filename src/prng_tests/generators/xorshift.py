@@ -1,6 +1,9 @@
 import numpy as np
+
 import argparse
+
 import pickle
+
 import time
 
 def ParseArguments():
@@ -12,7 +15,6 @@ def ParseArguments():
     args = parser.parse_args()
 
     return args.n, args.seed, args.output_file
-
 
 def xorshift(n, seed):
     result = []
@@ -28,18 +30,24 @@ def xorshift(n, seed):
 
     return np.array(result)
 
-n, seed, output_file = ParseArguments()
-generator = xorshift(n, seed)
 
+def main():
+    global data, data_outfile, generator, n, output_file, seed
+    n, seed, output_file = ParseArguments()
 
-if output_file == "":
-    print("Wygenerowane liczby: \n", generator)
-else:
-    data = {'PRNG': 'xorshift',
-            'seed': seed,
-            'n': n,
-            'numbers': generator}
+    generator = xorshift(n, seed)
 
-    data_outfile = open(output_file, 'wb+')
-    pickle.dump(data, data_outfile)
-    print("Generated numbers saved in: ", output_file)
+    if output_file == "":
+        print("Wygenerowane liczby: \n", generator)
+    else:
+        data = {'PRNG': 'xorshift',
+                'seed': seed,
+                'n': n,
+                'numbers': generator}
+
+        data_outfile = open(output_file, 'wb+')
+        pickle.dump(data, data_outfile)
+        print("Generated numbers saved in: ", output_file)
+
+if __name__ == "__main__":
+    main()

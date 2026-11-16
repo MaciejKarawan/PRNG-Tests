@@ -3,7 +3,6 @@ from scipy.stats import norm
 from scipy.stats import chisquare, poisson
 from scipy.special import kolmogorov
 from math import prod
-from stirling import s2
 
 def split(numbers, chunks):
     n = len(numbers)
@@ -117,6 +116,7 @@ def KS_test_second_level(numbers):
 # int, m, n = 5r
 
 def poker_test(numbers, m):
+    from stirling import s2  # Original optional helper is still required for poker tests.
     n = len(numbers)
     number_of_fives = n/5
 
