@@ -1,0 +1,102 @@
+[
+  {
+    "old": ".gitignore",
+    "sha256": "e726d92da0386f8e0dbba3d4c615dee36c7e0474e995da35b7218ced6b49a4ec",
+    "identical_content_at": [],
+    "status": "adapted-code-or-documentation"
+  },
+  {
+    "old": "PRNG_Karawan_Adamek.pdf",
+    "sha256": "dc459606234cdfe08d1ad4916d74006f21c727e46329587932c60a0b591d64e3",
+    "identical_content_at": [
+      "reports/PRNG_Karawan_Adamek.pdf"
+    ],
+    "status": "preserved-or-deduplicated"
+  },
+  {
+    "old": "README.md",
+    "sha256": "8611fab1cb8907b760e6e1b5248330aae2f582d1bd5d116553d45748c210438b",
+    "identical_content_at": [],
+    "status": "adapted-code-or-documentation"
+  },
+  {
+    "old": "code/Analiza/GLCG_testing.py",
+    "sha256": "504adcfba9dc52c1b80ccbe98e0cdc5b1a3a54a9894015fed619278742d3f634",
+    "identical_content_at": [
+      "archive/incomplete_analyses/GLCG_testing.py"
+    ],
+    "status": "preserved-or-deduplicated"
+  },
+  {
+    "old": "code/Analiza/LCG_testing.py",
+    "sha256": "2c1d6e8ce286cdcee5127ad2b00a2a1d3eb4d9ee6ff4f0a1e172a9442de4e64c",
+    "identical_content_at": [
+      "archive/incomplete_analyses/LCG_testing.py"
+    ],
+    "status": "preserved-or-deduplicated"
+  },
+  {
+    "old": "code/Analiza/irrational_tests.py",
+    "sha256": "77e87f94f237baf3f8c16ed7f9f7820c36d4c651a7cb410fecf32745478bfa17",
+    "identical_content_at": [
+      "archive/incomplete_analyses/irrational_tests.py"
+    ],
+    "status": "preserved-or-deduplicated"
+  },
+  {
+    "old": "code/Analiza/rc4_analysis.py",
+    "sha256": "cad39335e9e5d7c72e89f37bcb8b109c6189ce46e8a9f485c356ebbe62742257",
+    "identical_content_at": [],
+    "status": "adapted-code-or-documentation"
+  },
+  {
+    "old": "code/Analiza/xorshift_analysis.py",
+    "sha256": "1b512b6062a7cb11c8b9b60f2e7b9630f527807c4e8b0b9d546cb8f07df181d2",
+    "identical_content_at": [],
+    "status": "adapted-code-or-documentation"
+  },
+  {
+    "old": "code/Generatory/GLCG.py",
+    "sha256": "d47a20c9d10d7cd81b5b46dcc4c16b70ff390a66309197b754aeb1d192e8bc66",
+    "identical_content_at": [],
+    "status": "adapted-code-or-documentation"
+  },
+  {
+    "old": "code/Generatory/LCG.py",
+    "sha256": "038ef2b30d46bd99092149d14ce22574599a8d222abbcd2d10cbf3797a55c2e8",
+    "identical_content_at": [],
+    "status": "adapted-code-or-documentation"
+  },
+  {
+    "old": "code/Generatory/RC4.py",
+    "sha256": "2bf722b0b0de077a12ca71486ad228358d7197485d8ae0c18817d4fe0189cf79",
+    "identical_content_at": [],
+    "status": "adapted-code-or-documentation"
+  },
+  {
+    "old": "code/Generatory/RC4_multiple_keys.py",
+    "sha256": "0351e5e0dc6851aee432f09f4315fbc94a6396c19f016f835001210d6ac9a1be",
+    "identical_content_at": [],
+    "status": "adapted-code-or-documentation"
+  },
+  {
+    "old": "code/Generatory/xorshift.py",
+    "sha256": "9fe0c89b5cb25a9fb54235a5ebc219b0b1184b72486a18a4c36352415c3c601f",
+    "identical_content_at": [],
+    "status": "adapted-code-or-documentation"
+  },
+  {
+    "old": "code/Tests.py",
+    "sha256": "0809059b97852120726066b6343df99a1c7c84e0799dbfb02b13f9c7873a8f3a",
+    "identical_content_at": [],
+    "status": "adapted-code-or-documentation"
+  },
+  {
+    "old": "code/transforms.py",
+    "sha256": "6ae75e3dccee0d9c96adaf2b9ee91b62ddce393149f2fbd6e8ed42183ccc90d0",
+    "identical_content_at": [
+      "src/prng_tests/transforms.py"
+    ],
+    "status": "preserved-or-deduplicated"
+  }
+]

@@ -1,8 +1,10 @@
 import numpy as np
-import argparse
-import pickle
-import time
 
+import argparse
+
+import pickle
+
+import time
 
 def ParseArguments():
     parser = argparse.ArgumentParser(description="PRNG")
@@ -17,14 +19,6 @@ def ParseArguments():
     args = parser.parse_args()
 
     return args.n, args.seeds, args.m, args.coef, args.output_file
-
-
-n, seeds, m, coef, output_file = ParseArguments()
-
-
-
-coef = np.array(coef)
-seeds = np.array(seeds)
 
 def glcg(n, seeds, M, coef): # seeds and coef should be numpy arrays
     result = np.empty(n, dtype=int)
@@ -42,19 +36,29 @@ def glcg(n, seeds, M, coef): # seeds and coef should be numpy arrays
     return result
 
 
-generator = glcg(n, seeds, m, coef)
+def main():
+    global coef, data, data_outfile, generator, m, n, output_file, seeds
+    n, seeds, m, coef, output_file = ParseArguments()
+
+    coef = np.array(coef)
+
+    seeds = np.array(seeds)
+
+    generator = glcg(n, seeds, m, coef)
+
+    if output_file == "":
+        print("Wygenerowane liczby: \n", generator)
+    else:
+        data = {'PRNG': 'GLCG',
+                'coefficients': coef,
+                'Modulus': m,
+                'n': n,
+                'numbers': generator}
+
+        data_outfile = open(output_file, 'wb+')
+        pickle.dump(data, data_outfile)
+        print("Generated numbers saved in: ", output_file)
 
 
-
-if output_file == "":
-    print("Wygenerowane liczby: \n", generator)
-else:
-    data = {'PRNG': 'GLCG',
-            'coefficients': coef,
-            'Modulus': m,
-            'n': n,
-            'numbers': generator}
-
-    data_outfile = open(output_file, 'wb+')
-    pickle.dump(data, data_outfile)
-    print("Generated numbers saved in: ", output_file)
+if __name__ == "__main__":
+    main()

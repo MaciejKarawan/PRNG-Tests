@@ -1,8 +1,10 @@
 import numpy as np
-import argparse
-import pickle
-import time
 
+import argparse
+
+import pickle
+
+import time
 
 def ParseArguments():
     parser = argparse.ArgumentParser(description="PRNG")
@@ -18,7 +20,6 @@ def ParseArguments():
 
     return args.n, args.seed, args.m, args.a, args.c, args.output_file
 
-
 def lcg(n, seed, M, a, c):
     result = np.empty(n, dtype=int)
     result[0] = int(seed % M)
@@ -29,20 +30,26 @@ def lcg(n, seed, M, a, c):
     return result
 
 
-n, seed, m, a, c, output_file = ParseArguments()
+def main():
+    global a, c, data, data_outfile, generator, m, n, output_file, seed
+    n, seed, m, a, c, output_file = ParseArguments()
 
-generator = lcg(n, seed, m, a, c)
+    generator = lcg(n, seed, m, a, c)
 
-if output_file == "":
-    print("Wygenerowane liczby: \n", generator)
-else:
-    data = {'PRNG': 'LCG',
-            'a': a,
-            'c': c,
-            'Modulus': m,
-            'n': n,
-            'numbers': generator}
+    if output_file == "":
+        print("Wygenerowane liczby: \n", generator)
+    else:
+        data = {'PRNG': 'LCG',
+                'a': a,
+                'c': c,
+                'Modulus': m,
+                'n': n,
+                'numbers': generator}
 
-    data_outfile = open(output_file, 'wb+')
-    pickle.dump(data, data_outfile)
-    print("Generated numbers saved in: ", output_file)
+        data_outfile = open(output_file, 'wb+')
+        pickle.dump(data, data_outfile)
+        print("Generated numbers saved in: ", output_file)
+
+
+if __name__ == "__main__":
+    main()
