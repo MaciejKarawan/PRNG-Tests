@@ -4,7 +4,7 @@ from prng_tests.generators.lcg import lcg
 from prng_tests.generators.glcg import glcg
 from prng_tests.generators.rc4 import rc4
 from prng_tests.generators.xorshift import xorshift
-class MigrationChecks(unittest.TestCase):
+class ProjectTests(unittest.TestCase):
     def test_imports_do_not_parse_args_or_generate(self):
         output=io.StringIO()
         with contextlib.redirect_stdout(output):
